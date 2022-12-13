@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React, { useState } from "react";
+import StripeContainer from "./Stripe/StripeContainer";
+import raspberry from "./raspberry.jpg";
+
+const App = () => {
+
+  const [showMyFruit, setShowMyFruit] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {showMyFruit  ?   <StripeContainer /> : 
+    <div>
+      <h3>FRUIT SHOP</h3>
+      <h4>$12.99</h4>
+      <img src={raspberry} width="500px" alt="fruit" />
+      <div>
+      <button onClick={() => setShowMyFruit(true)}>Buy some raspberry!</button>
+      </div>
     </div>
+  }
+  </div>
   );
-}
+};
 
 export default App;
